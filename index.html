@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chappell Roan Concert Ticketing</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;700&display=swap');
+        body {
+            font-family: 'Poppins', sans-serif;
+            background-image: url(GAOGoZ0bIAANgra.jpeg) ;
+            color: white;
+            text-align: center;
+            padding: 20px;
+        }
+        .container {
+            background: rgba(255, 255, 255, 0.15);
+            padding: 30px;
+            border-radius: 15px;
+            width: 50%;
+            margin: auto;
+            box-shadow: 0 0 20px rgba(255, 255, 255, 0.3);
+            backdrop-filter: blur(10px);
+        }
+        input, select, button {
+            width: 80%;
+            padding: 12px;
+            margin: 10px 0;
+            border-radius: 8px;
+            border: none;
+            font-size: 16px;
+        }
+        select, input {
+            background: white;
+            color: black;
+        }
+        button {
+            background: #ff007f;
+            color: white;
+            font-weight: bold;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+        button:hover {
+            background: #d1006b;
+            transform: scale(1.05);
+        }
+        .promo {
+            margin-top: 20px;
+            font-size: 18px;
+        }
+        .promo a {
+            color: #ffccff;
+            text-decoration: none;
+            font-weight: bold;
+        }
+        .promo a:hover {
+            text-decoration: underline;
+        }
+        .promo img {
+            width: 300px;
+            border-radius: 10px;
+            margin-top: 10px;
+            box-shadow: 0 0 10px rgba(255, 255, 255, 0.5);
+        }
+    </style>
+</head>
+<body>
+    <h1> Fall of the Midwestern Princess: The Tour</h1>
+    <div class="container">
+        <label for="name">Name:</label>
+        <input type="text" id="name" placeholder="Enter your name" required>
+
+        <label for="email">Email:</label>
+        <input type="email" id="email" placeholder="Enter your email" required>
+
+        <label for="seat">Choose Your Seat:</label>
+        <select id="seat" onchange="updatePrice()">
+            <option value="50">General Admission - $50</option>
+            <option value="100">VIP - $100</option>
+            <option value="150">Front Row - $150</option>
+        </select>
+
+        <h3>Total Price: $<span id="ticketPrice">50</span></h3>
+
+        <button onclick="submitInfo()">Submit Info</button>
+        <button onclick="window.print()">Print Ticket</button>
+        <button onclick="buyMoreTickets()">Buy More Tickets</button>
+    </div>
+    
+    <div class="promo">
+        <p>🌟 Check out Chappell Roan's music video: </p>
+        <a href="https://www.youtube.com/watch?v=AfSjnsYiY_A" target="_blank">
+            <img src="https://img.youtube.com/vi/AfSjnsYiY_A/0.jpg" alt="Chappell Roan - Casual">
+        </a>
+    </div>
+
+    <script>
+        function updatePrice() {
+            let price = document.getElementById("seat").value;
+            document.getElementById("ticketPrice").innerText = price;
+        }
+
+        function submitInfo() {
+            let name = document.getElementById("name").value;
+            let email = document.getElementById("email").value;
+            if (name && email) {
+                alert(`Thank you, ${name}! Your ticket details have been submitted.`);
+            } else {
+                alert("Please fill in all required fields.");
+            }
+        }
+
+        function buyMoreTickets() {
+            location.reload();
+        }
+    </script>
+</body>
+</html>
